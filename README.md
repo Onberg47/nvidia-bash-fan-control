@@ -26,7 +26,7 @@ A simple way to apply a fan-curve to Nvidia cards on Linux through a terminal.
 
 # Configuration setting
 
-  #Path Settings
+  **Path Settings**
 
 `logsEnabled` - When true will print out logs to files.
   
@@ -34,7 +34,7 @@ A simple way to apply a fan-curve to Nvidia cards on Linux through a terminal.
   
 `tablePath` - This is inherited from the log-path, just set the file name if you want to chage it.
 
-  #Fan-Speed Settings
+  **Fan-Speed Settings**
 
 `defaultSpeed` - Default Fan Speed Setting.
 
@@ -44,7 +44,7 @@ A simple way to apply a fan-curve to Nvidia cards on Linux through a terminal.
              This means that if the fan-curve goes below what one of your GPUs can be set to, *only* that GPU will be set to its minimum to get as close as it can, while the other GPU(s) that can go lower will match the curve if they can.
              The goal is to ensure that a GPU is never set to a speed it cannot reach, which would cause it to not update at all. This way every GPU will follow the curve to the best of its abilities.
 
-  #Persistent Fan Curve Refresh Interval
+  **Persistent Fan Curve Refresh Interval**
 
 `refresh` - Max or constant refresh time in seconds.
 
@@ -54,7 +54,8 @@ A simple way to apply a fan-curve to Nvidia cards on Linux through a terminal.
                    If you use this, `refresh` should be over 5 seconds otherwise its a waste. Ideally 10-15 seconds or higher.
 `minSleep` - Minimum delay for refreshing, only applicable when dynamic `adaptivRefresh` is enabled. This can be 0.
 
-  #Fan Curve Settings
+  
+  **Fan Curve Settings**
 	
 `dCurveStart` - Day Curve Start Time (24 Hour Time)
 
