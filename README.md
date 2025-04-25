@@ -54,7 +54,6 @@ A simple way to apply a fan-curve to Nvidia cards on Linux through a terminal.
                    If you use this, `refresh` should be over 5 seconds otherwise its a waste. Ideally 10-15 seconds or higher.
 `minSleep` - Minimum delay for refreshing, only applicable when dynamic `adaptivRefresh` is enabled. This can be 0.
 
-  
   **Fan Curve Settings**
 	
 `dCurveStart` - Day Curve Start Time (24 Hour Time)
@@ -74,13 +73,13 @@ A simple way to apply a fan-curve to Nvidia cards on Linux through a terminal.
 
 # Operations of interest
 
-  Set:
+  **Set:**
     This will manually set every fan on every GPU to your specified speed unless:
       - Your input speed is below your global min-speed, then it will return an error/warning
       - If your input speed is below what a GPU can reach, then it will default to the min for that GPU
     I think this operation is not required, using Nvidia-SMI is rather straight forward and is exactly how it is applied. I may remove or simply this to reduce bulk in the script.
   
-  Info:
+  **Info:**
     This will output basic information about your connected GPUs
 ```
 Nvidia Fan Info:
@@ -89,7 +88,7 @@ Nvidia Fan Info:
 
 ```
 
-  Config:
+  **Config:**
     This will print to the console and write to the `config.log` file the current script settings, this includes the user-set settings *and* the auto-detected settings.
     The aim is to have a clear view of what data the script is using, to validate your settings are correctly interrupted.
     This is mostly a debugging tool, not of much use to normal users, I think.
