@@ -29,12 +29,12 @@ tablePath="${logPath}/table.txt"    # This is inherited, just set the file name 
 defaultSpeed=60     # Default Fan Speed Setting
 minSpeedG=30        # Min global fan speed % Set this to the lowest fan-min out of your GPUs or 0
 declare -a minSpeed
-minSpeed=( 30 )     # Min GPU-specific fan speed % MUST BE SET FOR EACH GPU. # Not sure if GPU-specific min's is really necessary... could go back to a global min for all GPUs. Would be a tiny bit simplier
+minSpeed=( 30 )     # Min GPU-specific fan speed % MUST BE SET FOR EACH GPU. # Not sure if GPU-specific min's is really necessary
 
 ### Persistent Fan Curve Refresh Interval
-refresh=2               # Max refresh time in seconds (only is reached when fans are at `upperSpeed`)
+refresh=2               # Max refresh time in seconds
 adaptivRefresh=false    # When true, will adjust the refresh rate to adapt faster ounce temperature changes are detected. The greater the change that faster the script refreshes
-minSleep=1              # Minimum delay for refreshing (seconds)
+minSleep=1              # Minimum delay for refreshing
 
 ### Fan Curve Settings
 dCurveStart=12      # Day Curve Start Time (24 Hour Time)
@@ -42,7 +42,7 @@ nCurveStart=23      # Night Curve Start Time (24 Hour Time)
 nCurveEnabled=false # Enable/Disable (true/false) switching to night curve when appropriate
 
 MAXTHRESHOLD=60     # Fans will run at 100% if hotter than this temperature (°C)
-minTempDrop=5       # °C temperature must drop before updating
+minTempDrop=5       # Temperature (°C) must drop before updating
 minTempTOT=6        # TimeOutTicks: Number of "Waits" before the minTempDrop is ignored. This is for when idle and the temp cannot drop enough to reach min fan-speed
 
 temp_points[0]=0    dCurve[0]=$minSpeedG     nCurve[0]=$minSpeedG ### This point is fixed
@@ -391,7 +391,7 @@ case "$1" in
         printf "  |%4s, %-10s| %s\n" "-s" "--set" "Set all fans for all GPUs to a speed"  # Could be complressed into a single printf but that got a bit messy
         printf "  |%4s, %-10s| %s\n" "-dx" "" "For testing Individual GPU Fan Settings"
         printf "  |%4s, %-10s| %s\n" "-c" "--curve" "Applies Fan Curve (For use with cron)"
-        printf "  |%4s, %-10s| %s\n" "-pc" "--pcurve" "Applies Persistant Fan Curve (For use without cron)"
+        printf "  |%4s, %-10s| %s\n" "-pc" "--pcurve" "Applies Persistent Fan Curve (For use without cron)"
         printf "  |%4s, %-10s| %s\n" "-i" "--info" "Display GPU, Fan and Temp Status for each GPU in a table"
         printf "  |%4s, %-10s| %s\n" "-con" "--config" "Prints out the current deplyment settings to console and a config.log file"
         printf "  |%4s, %-10s| %s\n" "-V" "--version" "Display version/credits info for this script"
