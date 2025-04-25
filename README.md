@@ -19,20 +19,21 @@ A simple way to apply a fan-curve to Nvidia cards on Linux through a terminal.
 
 - Minimum temperature drops before slowing fan-speeds to ensure good and consistent cooling.
 
+
 ---
 
 ### Configuration and Operations
 
 # Configuration setting
 
-  Path Settings
-  `logsEnabled` - When true will print out logs to files.
+  #Path Settings
+`logsEnabled` - When true will print out logs to files.
   
-  `logPath` - This is the directory where all the log files will be created
+`logPath` - This is the directory where all the log files will be created
   
-  `tablePath` - This is inherited from the log-path, just set the file name if you want to chage it.
+`tablePath` - This is inherited from the log-path, just set the file name if you want to chage it.
 
-  Fan-Speed Settings
+  #Fan-Speed Settings
 `defaultSpeed` - Default Fan Speed Setting.
 
 `minSpeedG` - Min global fan speed % Set this to the lowest fan-min out of your GPUs or 0
@@ -41,7 +42,7 @@ A simple way to apply a fan-curve to Nvidia cards on Linux through a terminal.
              This means that if the fan-curve goes below what one of your GPUs can be set to, *only* that GPU will be set to its minimum to get as close as it can, while the other GPU(s) that can go lower will match the curve if they can.
              The goal is to ensure that a GPU is never set to a speed it cannot reach, which would cause it to not update at all. This way every GPU will follow the curve to the best of its abilities.
 
-Persistent Fan Curve Refresh Interval
+  #Persistent Fan Curve Refresh Interval
 `refresh` - Max or constant refresh time in seconds.
 
 `adaptivRefresh` - When true, will adjust the refresh rate to adapt faster ounce temperature changes are detected.
@@ -50,7 +51,7 @@ Persistent Fan Curve Refresh Interval
                    If you use this, `refresh` should be over 5 seconds otherwise its a waste. Ideally 10-15 seconds or higher.
 `minSleep` - Minimum delay for refreshing, only applicable when dynamic `adaptivRefresh` is enabled. This can be 0.
 
-Fan Curve Settings
+  #Fan Curve Settings
 `dCurveStart` - Day Curve Start Time (24 Hour Time)
 
 `nCurveStart` - Night Curve Start Time (24 Hour Time)
@@ -62,6 +63,9 @@ Fan Curve Settings
 `minTempDrop` - Temperature (°C) must drop before updating. This is to reduce the rate at which the fans slow-down with the curve, forcing them to stay high when the temperature only drops small amounts.
 
 `minTempTOT` - TimeOutTicks: Number of "Waits" before the minTempDrop requirement is ignored. This is for when idle and the temp cannot drop enough to reach min fan-speed.
+
+
+---
 
 # Operations of interest
 
@@ -105,6 +109,7 @@ operations:
   |  -V, --version | Display version/credits info for this script
   |  -h, --help    | Display full help and usage
 ```
+
 
 ---
 
