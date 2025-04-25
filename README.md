@@ -27,18 +27,23 @@ A simple way to apply a fan-curve to Nvidia cards on Linux through a terminal.
 
   Path Settings
   `logsEnabled` - When true will print out logs to files.
+  
   `logPath` - This is the directory where all the log files will be created
+  
   `tablePath` - This is inherited from the log-path, just set the file name if you want to chage it.
 
   Fan-Speed Settings
 `defaultSpeed` - Default Fan Speed Setting.
+
 `minSpeedG` - Min global fan speed % Set this to the lowest fan-min out of your GPUs or 0
+
 `minSpeed` - Min GPU-specific fan speed % MUST BE SET FOR EACH GPU. This is in case you have two GPUs and one can have a lower fan-speed% than the other. Instead of narrowing your fan-speed curve to your highest min.
              This means that if the fan-curve goes below what one of your GPUs can be set to, *only* that GPU will be set to its minimum to get as close as it can, while the other GPU(s) that can go lower will match the curve if they can.
              The goal is to ensure that a GPU is never set to a speed it cannot reach, which would cause it to not update at all. This way every GPU will follow the curve to the best of its abilities.
 
 Persistent Fan Curve Refresh Interval
 `refresh` - Max or constant refresh time in seconds.
+
 `adaptivRefresh` - When true, will adjust the refresh rate to adapt faster ounce temperature changes are detected.
                    The greater the change that faster the script refreshes to keep-up with dynamic situations to try optimise the refresh rate.
                    This works by refreshing at rates between `refresh` and `minSleep`, reducing the sleep time (increasing the refresh rate) in proportion to the the temperature changes. When the GPU is idle, refreshes slowly. When the temperature changes it refreshes quickly to make fan-changes more rapidly.
@@ -47,11 +52,15 @@ Persistent Fan Curve Refresh Interval
 
 Fan Curve Settings
 `dCurveStart` - Day Curve Start Time (24 Hour Time)
+
 `nCurveStart` - Night Curve Start Time (24 Hour Time)
+
 `nCurveEnabled` - Enable/Disable (true/false) switching to night curve when appropriate.
 
 `MAXTHRESHOLD` - Fans will run at 100% if hotter than this temperature (°C), bypassing the curve.
+
 `minTempDrop` - Temperature (°C) must drop before updating. This is to reduce the rate at which the fans slow-down with the curve, forcing them to stay high when the temperature only drops small amounts.
+
 `minTempTOT` - TimeOutTicks: Number of "Waits" before the minTempDrop requirement is ignored. This is for when idle and the temp cannot drop enough to reach min fan-speed.
 
 # Operations of interest
